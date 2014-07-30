@@ -1,6 +1,6 @@
 //I made this  because I preferred the handing of item/track selection in Cubase/Pro Tools. 
 //This EEL script will run in the background: Upon selecting an item, it will select the track it's on.
-//Upon deselecting an item, it will  deselect the track it's on, if it contains no other selected items.
+//Upon deselecting an item, it will deselect the track it's on, if it contains no other selected items.
 //If you're going to use this, make sure you have 'Editing Behaviour > Mouse click/edit in track view changes track selection' unchecked
 
 //Uncomment the commented script for a debug readout.
