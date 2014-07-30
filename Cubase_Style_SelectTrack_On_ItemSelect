@@ -1,4 +1,3 @@
-```python
 function msg(s)(ShowConsoleMsg(s););
 
 function SelectTrack_OnItemSelect_Monitor()(
@@ -108,4 +107,3 @@ function SelectTrack_OnItemSelect_Monitor()(
 );
 
 SelectTrack_OnItemSelect_Monitor();
-```
