@@ -16,7 +16,7 @@ function SelectTrack_OnItemSelect_Monitor()(
 		
 		loop(stored_total,
 			re_do=0;
-			has_selected=false;
+			has_selected=0;
 			
 			!IsMediaItemSelected(stored[i]) ? (
 				
@@ -26,7 +26,7 @@ function SelectTrack_OnItemSelect_Monitor()(
 					k=0;
 					loop(CountSelectedMediaItems(0), 
 						si=GetSelectedMediaItem(0, k);
-						stored[i]!=si ? t==GetMediaItem_Track(si) ? has_selected=true;
+						stored[i]!=si ? t==GetMediaItem_Track(si) ? has_selected=1;
 						k+=1;
 						);		
 				);
