@@ -64,7 +64,7 @@ function SelectTrack_OnItemSelect_Monitor()(
 			// OLD ITEM
 			(stored_total > 0) ? (
 				j=0; loop(stored_total,
-					sel_item == stored[j] ? found=1;;	
+					sel_item == stored[j] ? found=1;	
 					j+=1
 				);
 			);
