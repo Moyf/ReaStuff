@@ -1,11 +1,14 @@
-//I made this  because I preferred the handing of item/track selection in Cubase/Pro Tools. 
+
 //This EEL script will run in the background: Upon selecting an item, it will select the track it's on.
 //Upon deselecting an item, it will deselect the track it's on, if it contains no other selected items.
+
+//I made this  because I preferred the handing of item/track selection in Cubase/Pro Tools. 
 //If you're going to use this, make sure you have 'Editing Behaviour > Mouse click/edit in track view changes track selection' unchecked
 
 //Uncomment the commented script for a debug readout.
 
 function msg(s)(ShowConsoleMsg(s));
+
 
 function SelectTrack_OnItemSelect_Monitor()(
 	stored=1;
@@ -30,6 +33,7 @@ function SelectTrack_OnItemSelect_Monitor()(
 		i=0;
 		
 		loop(stored_total,
+			re_do=false;
 			!IsMediaItemSelected(stored[i]) ? (
 			
 				(t = GetMediaItem_Track(stored[i])) && (t_items=CountTrackMediaItems(t) == 0) ? (
@@ -39,14 +43,20 @@ function SelectTrack_OnItemSelect_Monitor()(
 				);
 				
 				!has_selected ? SetMediaTrackInfo_Value(t, "I_SELECTED", 0);
-				i == (stored_total-1) ? stored[i]=0 : stored[i] = stored[stored_total-1]; // 'Dirty' inline the list.
+				
+				i == (stored_total-1) ? stored[i]=0 : (
+					stored[i] = stored[stored_total-1]; // 'Dirty' inline the list.
+					re_do=true; // Don't increment so we can evaluate the moved item.
+				);
+				
 				stored_total-=1;
 				// msg("Cleared.\n")
 			);
-		i += 1;
+			
+		!re_do ? i += 1;
 		);
 	);
-		
+	
 	((items = CountSelectedMediaItems(0)) == 0) ? (
 		memset(stored,0,1024);
 		stored_total=0;
