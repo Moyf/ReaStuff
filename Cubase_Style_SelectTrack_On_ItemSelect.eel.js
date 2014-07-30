@@ -45,8 +45,12 @@ function SelectTrack_OnItemSelect_Monitor()(
 				!has_selected ? SetMediaTrackInfo_Value(t, "I_SELECTED", 0);
 				
 				i == (stored_total-1) ? stored[i]=0 : (
-					stored[i] = stored[stored_total-1]; // 'Dirty' inline the list.
-					re_do=true; // Don't increment so we can evaluate the moved item.
+					// 'Dirty' inline the list.
+					stored[i] = stored[stored_total-1]; 
+					stored[stored_total-1] = 0; 
+					// Don't increment so we can evaluate the moved item.
+					re_do=true; 
+					
 				);
 				
 				stored_total-=1;
@@ -105,7 +109,10 @@ function SelectTrack_OnItemSelect_Monitor()(
 				stored_total+=1;
 				
 				
-				(track_id = GetMediaItem_Track(sel_item)) ? (SetMediaTrackInfo_Value(track_id, "I_SELECTED", 1));
+				(track_id = GetMediaItem_Track(sel_item)) ? (
+					SetMediaTrackInfo_Value(track_id, "I_SELECTED", 1);			
+					// GetSetMediaTrackInfo_String(track_id, "P_NAME", #track_name, 0);
+				);
 				
 				// (take_count = CountTakes(sel_item)) ? (
 					// (active_take = GetActiveTake(sel_item)) ? (
