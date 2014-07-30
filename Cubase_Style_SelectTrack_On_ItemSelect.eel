@@ -1,4 +1,4 @@
-```ruby
+```python
 function msg(s)(ShowConsoleMsg(s););
 
 function SelectTrack_OnItemSelect_Monitor()(
