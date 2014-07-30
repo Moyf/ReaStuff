@@ -1,4 +1,4 @@
-function msg(s)(ShowConsoleMsg(s););
+function msg(s)(ShowConsoleMsg(s));
 
 function SelectTrack_OnItemSelect_Monitor()(
 	stored=1;
@@ -20,16 +20,19 @@ function SelectTrack_OnItemSelect_Monitor()(
 	// CLEAR OLD ITEMS	
 	(stored_total > 0) ? (
 		// msg("Begin clearing check:\n");
-		i=0;loop(stored_total,
+		i=0;
+		
+		loop(stored_total,
 			!IsMediaItemSelected(stored[i]) ? (
+			
 				(t = GetMediaItem_Track(stored[i])) && (t_items=CountTrackMediaItems(t) == 0) ? (
-					k=0;loop(CountSelectedMediaItems(0),
-						(t==GetMediaItem_Track(GetSelectedMediaItem(0, k))) ? (has_selected=true);
-					);
+					k=0;
+					loop(CountSelectedMediaItems(0), 
+						t==GetMediaItem_Track(GetSelectedMediaItem(0, k)) ? has_selected=true);		
 				);
+				
 				!has_selected ? SetMediaTrackInfo_Value(t, "I_SELECTED", 0);
-					
-				i == (stored_total-1) ? stored[i]=0 : stored[i] = stored[stored_total]; // 'Dirty' inline the list.
+				i == (stored_total-1) ? stored[i]=0 : stored[i] = stored[stored_total-1]; // 'Dirty' inline the list.
 				stored_total-=1;
 				// msg("Cleared.\n")
 			);
@@ -42,7 +45,8 @@ function SelectTrack_OnItemSelect_Monitor()(
 		stored_total=0;
 	)
 	:(
-		i=0; loop(items,
+		i=0; 
+		loop(items,
 			
 			sel_item = GetSelectedMediaItem(0, i);
 			found=0;
