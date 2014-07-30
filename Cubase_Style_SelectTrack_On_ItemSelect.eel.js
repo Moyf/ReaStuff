@@ -105,10 +105,7 @@ function SelectTrack_OnItemSelect_Monitor()(
 				stored_total+=1;
 				
 				
-				(track_id = GetMediaItem_Track(sel_item)) ? (
-					SetMediaTrackInfo_Value(track_id, "I_SELECTED", 1);			
-					// GetSetMediaTrackInfo_String(track_id, "P_NAME", #track_name, 0);
-				);
+				(track_id = GetMediaItem_Track(sel_item)) ? (SetMediaTrackInfo_Value(track_id, "I_SELECTED", 1));
 				
 				// (take_count = CountTakes(sel_item)) ? (
 					// (active_take = GetActiveTake(sel_item)) ? (
