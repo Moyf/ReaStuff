@@ -1,6 +1,4 @@
-				function msg(s)(
-	ShowConsoleMsg(s);
-);
+function msg(s)(ShowConsoleMsg(s););
 
 function SelectTrack_OnItemSelect_Monitor()(
 	stored=1;
@@ -49,12 +47,12 @@ function SelectTrack_OnItemSelect_Monitor()(
 			sel_item = GetSelectedMediaItem(0, i);
 			found=0;
 			
-			msg("sel_item = ");
-			msg(sprintf(#,"%i",sel_item));
-			msg("\n");
-			msg(" i = (");
-			msg(sprintf(#,"%i",i));
-			msg(")\n");
+			// msg("sel_item = ");
+			// msg(sprintf(#,"%i",sel_item));
+			// msg("\n");
+			// msg(" i = (");
+			// msg(sprintf(#,"%i",i));
+			// msg(")\n");
 			
 			// OLD ITEM
 			(stored_total > 0) ? (
@@ -69,19 +67,19 @@ function SelectTrack_OnItemSelect_Monitor()(
 				);
 			);
 			
-			msg("found= ");
-			msg(sprintf(#,"%i",found));
-			msg("\n");
+			// msg("found= ");
+			// msg(sprintf(#,"%i",found));
+			// msg("\n");
 			
 			// NEW ITEM
 			(found == 0) ? (
 				stored[stored_total]=sel_item;
 				
-				msg("NEW stored[");
-				msg(sprintf(#,"%i",stored_total));
-				msg("]=");
-				msg(sprintf(#,"%i",stored[stored_total]));
-				msg("\n");
+				// msg("NEW stored[");
+				// msg(sprintf(#,"%i",stored_total));
+				// msg("]=");
+				// msg(sprintf(#,"%i",stored[stored_total]));
+				// msg("\n");
 				
 				stored_total+=1;
 				
