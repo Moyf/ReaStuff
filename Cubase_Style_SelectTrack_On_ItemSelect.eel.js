@@ -19,7 +19,7 @@ function SelectTrack_OnItemSelect_Monitor() local(stored_total)(
 			);
 			
 			//Deselect the track if it moved or no longer has selected items.
-			IsTrackSelected(stored_t[i]) && (new_stored) ?(
+			IsTrackSelected(stored_t[i]) && (new_stored || (!selected && stored_total > 1) ) ?(
 				t_items=CountTrackMediaItems(stored_t[i]) > 0 ? (
 					k=0;
 					sel_count=CountSelectedMediaItems(0);
