@@ -4,7 +4,6 @@
 //I made this  because I preferred the handing of item/track selection in Cubase/Pro Tools. 
 //If you're going to use this, make sure you have 'Editing Behaviour > Mouse click/edit in track view changes track selection' unchecked
 
-
 function SelectTrack_OnItemSelect_Monitor() local(stored_total)(
 	stored=1;
 	stored_t=3333;
