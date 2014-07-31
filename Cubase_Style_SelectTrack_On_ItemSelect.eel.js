@@ -1,9 +1,3 @@
-//This EEL script will run in the background: Upon selecting an item, it will select the track it's on.
-//Upon deselecting an item, it will deselect the track it's on, if it contains no other selected items.
-
-//I made this  because I preferred the handing of item/track selection in Cubase/Pro Tools. 
-//If you're going to use this, make sure you have 'Editing Behaviour > Mouse click/edit in track view changes track selection' unchecked
-
 function SelectTrack_OnItemSelect_Monitor() local(stored_total)(
 	stored=1;
 	stored_t=3333;
@@ -25,7 +19,7 @@ function SelectTrack_OnItemSelect_Monitor() local(stored_total)(
 			);
 			
 			//Deselect the track if it moved or no longer has selected items.
-			IsTrackSelected(stored_t[i]) && (new_stored || (!selected && !deleted) ) ?(
+			IsTrackSelected(stored_t[i]) && (new_stored) ?(
 				t_items=CountTrackMediaItems(stored_t[i]) > 0 ? (
 					k=0;
 					sel_count=CountSelectedMediaItems(0);
